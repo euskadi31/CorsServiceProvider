@@ -1,7 +1,7 @@
 # Silex CORS Service Provider
 
 [![Build Status](https://travis-ci.org/euskadi31/CorsServiceProvider.svg?branch=master)](https://travis-ci.org/euskadi31/CorsServiceProvider)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/07bf7885-e810-48e8-9043-e30f49f1f2e7/mini.png)](https://insight.sensiolabs.com/projects/07bf7885-e810-48e8-9043-e30f49f1f2e7)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2c558cf6-6607-4eba-a1c1-08f60e1d14ae/mini.png)](https://insight.sensiolabs.com/projects/2c558cf6-6607-4eba-a1c1-08f60e1d14ae)
 
 The CorsServiceProvider provides [CORS](http://enable-cors.org/) support as middleware for your silex 2.0 application. CORS
 allows you to make AJAX requests across domains. CORS uses OPTIONS requests to make preflight requests. Because silex
