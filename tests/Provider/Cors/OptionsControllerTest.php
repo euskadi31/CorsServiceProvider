@@ -25,6 +25,8 @@ class OptionsControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
         $this->assertTrue($response->headers->has('Allow'));
         $this->assertEquals('GET,POST', $response->headers->get('Allow'));
+        $this->assertEquals('*', $response->headers->get('Access-Control-Allow-Origin'));
+        $this->assertEquals('GET,POST', $response->headers->get('Access-Control-Allow-Methods'));
         $this->assertEquals(204, $response->getStatusCode());
     }
 }
