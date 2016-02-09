@@ -39,7 +39,9 @@ class OptionsController
     public function __invoke()
     {
         return Response::create('', 204, [
-            'Allow' => implode(',', $this->methods)
+            'Allow' => implode(',', $this->methods),
+            'Access-Control-Allow-Methods'=> implode(',', $this->methods),
+            'Access-Control-Allow-Origin' => '*'
         ]);
     }
 }
