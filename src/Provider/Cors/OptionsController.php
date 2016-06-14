@@ -41,7 +41,8 @@ class OptionsController
         return Response::create('', 204, [
             'Allow' => implode(',', $this->methods),
             'Access-Control-Allow-Methods'=> implode(',', $this->methods),
-            'Access-Control-Allow-Origin' => '*'
+            'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Headers' => 'Content-Type'
         ]);
     }
 }

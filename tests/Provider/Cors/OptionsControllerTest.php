@@ -27,6 +27,7 @@ class OptionsControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('GET,POST', $response->headers->get('Allow'));
         $this->assertEquals('*', $response->headers->get('Access-Control-Allow-Origin'));
         $this->assertEquals('GET,POST', $response->headers->get('Access-Control-Allow-Methods'));
+        $this->assertEquals('Content-Type', $response->headers->get('Access-Control-Allow-Headers'));
         $this->assertEquals(204, $response->getStatusCode());
     }
 }
