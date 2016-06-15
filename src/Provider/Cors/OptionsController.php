@@ -11,6 +11,7 @@
 namespace Euskadi31\Silex\Provider\Cors;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Options controller.
@@ -36,13 +37,13 @@ class OptionsController
     /**
      * @return Response
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         return Response::create('', 204, [
             'Allow' => implode(',', $this->methods),
             'Access-Control-Allow-Methods'=> implode(',', $this->methods),
             'Access-Control-Allow-Origin' => '*',
-            'Access-Control-Allow-Headers' => 'Content-Type'
+            'Access-Control-Allow-Headers' => $request->headers->get('Access-Control-Request-Headers')
         ]);
     }
 }
