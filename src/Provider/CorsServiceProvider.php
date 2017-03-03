@@ -25,16 +25,37 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class CorsServiceProvider implements ServiceProviderInterface, BootableProviderInterface, EventListenerProviderInterface
 {
     /**
+     * @var array
+     */
+    private $config = [
+        'expose_headers'    => null,
+        'max_age'           => null,
+        'allow_credentials' => false,
+        'allow_methods'     => [],
+        'allow_origins'     => []
+    ];
+
+    /**
+     *
+     * @param array $config
+     */
+    public function __construct($config)
+    {
+        foreach ($config as $key => $value) {
+            if (array_key_exists($key, $this->config)) {
+                $this->config[$key] = $value;
+            } else {
+                // TODO: throw an exception?
+            }
+        }
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function register(Container $app)
     {
-        $app['cors.options'] = [
-            'expose_headers'    => null,
-            'max_age'           => null,
-            'allow_credentials' => false,
-            'allow_methods'     => []
-        ];
+        $app['cors.options'] = $this->config;
 
         $app['cors.listener'] = function($app) {
             return new Cors\CorsListener($app);
