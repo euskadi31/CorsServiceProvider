@@ -32,7 +32,7 @@ class CorsServiceProvider implements ServiceProviderInterface, BootableProviderI
         $app['cors.options'] = [
             'expose_headers'    => null,
             'max_age'           => null,
-            'allow_credentials' => false,
+            'allow_credentials' => true,
             'allow_methods'     => []
         ];
 
